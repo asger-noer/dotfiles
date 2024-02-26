@@ -1,0 +1,3 @@
+/aws/.aws/**/cache
+
+/gpg/.gnupg/trustdb.gpg
