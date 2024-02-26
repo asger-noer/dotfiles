@@ -1,0 +1,5 @@
+Host caruso-*
+    IdentityFile ~/.ssh/id_ed25519
+
+Host *
+    IdentityAgent "/Users/asger/.gnupg/S.gpg-agent.ssh"

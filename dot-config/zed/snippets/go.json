@@ -1,0 +1,20 @@
+{
+  "Add feature flag check": {
+    "prefix": "ff",
+    "description": "Add feature flag check",
+    "body": [
+      "flag$0, err := s.featureFlagService.IsEnabled(ctx, consts.$0)",
+      "if err != nil {",
+      "\treport.Error(ctx, err)",
+      "\treturn nil, errors.ErrorInternalServer",
+      "}"
+    ]
+  },
+  "Add Feature Flag Mock": {
+    "prefix": "ffm",
+    "description": "Add Feature Flag Mock",
+    "body": [
+      "mocks.featureFlag.EXPECT().IsEnabled(ctx, consts.$0).Return(true, nil)"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "Add cursor connection": {
+    "prefix": "cursor",
+    "description": "Add a GraphQL cursor connection",
+    "body": [
+      "type $0Connection {",
+      "\tpageInfo: PageInfo!",
+      "\tedges: [$0Edge!]!",
+      "}",
+      "",
+      "type $0Edge {",
+      "\tcursor: Cursor!",
+      "\tnode: $0!",
+      "}"
+    ]
+  }
+}

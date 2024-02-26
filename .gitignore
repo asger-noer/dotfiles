@@ -1,0 +1,22 @@
+.vscode/extensions/*
+.DS_Store
+
+*cache
+**.pem
+
+dot-config/containers/podman*
+
+
+# Ignore tmp plugins
+dot-config/tmux/plugins/*
+
+# Ignore list for GPG
+dot-gnupg/crls.d
+dot-gnupg/*-keys*.d
+dot-gnupg/*.status
+dot-gnupg/S.*
+dot-gnupg/pubring.*
+dot-ssh/known_hosts
+dot-config/zed/conversations
+dot-config/zed/prompts/prompts-library-db.0.mdb
+dot-ssh/known_hosts

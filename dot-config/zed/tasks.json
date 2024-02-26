@@ -1,0 +1,17 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+//
+// Example:
+[
+  {
+    "label": "Run Go tests",
+    "command": "go test ./... -tags integration"
+  },
+  {
+    "label": "Lint Go Code",
+    "command": "golangci-lint run --allow-parallel-runners --new-from-rev=$(git rev-parse master) --fix"
+  },
+  {
+    "label": "Go Generate",
+    "command": "go generate ./... && gomt"
+  }
+]
