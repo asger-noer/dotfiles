@@ -4,9 +4,6 @@
 export EDITOR="zed --wait" # Set the editor to zed and wait for it to close before continuing.
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="/Users/asger/go/bin:$PATH"
-export PATH="/Users/asger/.cargo/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 export TERM=xterm-256color
 

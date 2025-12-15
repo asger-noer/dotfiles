@@ -27,25 +27,3 @@ git:
   parseEmoji: true
 os:
   editPreset: "zed"
-customCommands:
-  - key: "N"
-    context: "localBranches"
-    description: "Graphite: Create a new local branch"
-    prompts:
-      - type: "input"
-        title: "Name of the branch?"
-        key: "Name"
-    command: "gt create {{ .Form.Name | quote }}"
-    loadingText: "Creating branch"
-  - key: "t"
-    context: "localBranches"
-    description: "Graphite: track branch"
-    command: "gt track"
-  - key: "S"
-    context: "localBranches"
-    description: "Graphite: Submit changes to the current stack"
-    command: "gt s -s -f --restack"
-  - key: "<c-s>"
-    context: "localBranches"
-    description: "Graphite: Sync stack with remote"
-    command: "gt sync -f"

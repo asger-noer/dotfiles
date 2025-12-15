@@ -1,7 +1,7 @@
 [user]
 	name = Asger Noer
 	email = asger@noer.dev
-	signingkey = 9329A40B7D9A07D8
+	signingkey = 3B5F9AF6F6FF9450237173979329A40B7D9A07D8
 
 [commit]
 	gpgsign = true
