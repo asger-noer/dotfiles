@@ -16,6 +16,8 @@ dot-gnupg/*-keys*.d
 dot-gnupg/*.status
 dot-gnupg/S.*
 dot-gnupg/pubring.*
+dot-gnupg/trustdb.*
+
 dot-ssh/known_hosts
 dot-config/zed/conversations
 dot-config/zed/prompts/prompts-library-db.0.mdb

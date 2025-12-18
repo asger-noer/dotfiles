@@ -108,31 +108,30 @@
           "parameterNames": true, // Show parameter names at function call sites
           "rangeVariableTypes": true // Show types of range variables
         },
-        // "analyses": {
-        //   "S1002": true, // Converts uses of `strings.Compare` to string comparison
-        //   "S1005": true, // Checks for unnecessary use of assignment to blank identifier
-        //   "S1006": true, // Suggests `for range x` over `for _, _ = range x`
-        //   "S1008": true, // Simplifies returning boolean expressions
-        //   "S1011": true, // Suggests removing redundant break statements from switch cases
-        //   "S1016": true, // Simplifies type switches with a single case
-        //   "S1021": true, // Removes redundant type conversions in range clauses
-        //   "S1025": true, // Replaces `fmt.Sprintf("%d", x)` with `strconv.Itoa(x)`
-        //   "S1029": true, // Suggests using `range x` over `for i := range ...`
-        //   "S9003": true, // Empty body in if/else chain
-        //   "SA1000": true, // Invalid regular expression patterns
-        //   "SA1002": true, // Invalid format strings in printf calls
-        //   "SA4005": true, // Identifies dead code after return statements
-        //   "SA4006": true, // Checks for inappropriate assignment of parameters
-        //   "SA4012": true, // Flags suspicious direct float comparisons
-        //   "SA9001": true, // Detects unneeded Printf calls that can be print
-        //   "SA9005": true, // Identifies duplicate conditions in if/else chains
-        //   "SA9007": true, // Checks for attempts to unmarshal into unexported fields
-        //   "ST1000": true, // Checks package documentation conventions
-        //   "ST1003": true, // Checks identifier naming conventions
-        //   "ST1011": true, // Flags redundant cutset arguments to strings.Trim* functions
-        //   "ST1012": true // Verifies error variables naming convention (_err suffix)
-        // },
-        "buildFlags": ["-tags", "integration,slow"],
+        "analyses": {
+          "S1002": true, // Converts uses of `strings.Compare` to string comparison
+          "S1005": true, // Checks for unnecessary use of assignment to blank identifier
+          "S1006": true, // Suggests `for range x` over `for _, _ = range x`
+          "S1008": true, // Simplifies returning boolean expressions
+          "S1011": true, // Suggests removing redundant break statements from switch cases
+          "S1016": true, // Simplifies type switches with a single case
+          "S1021": true, // Removes redundant type conversions in range clauses
+          "S1025": true, // Replaces `fmt.Sprintf("%d", x)` with `strconv.Itoa(x)`
+          "S1029": true, // Suggests using `range x` over `for i := range ...`
+          "S9003": true, // Empty body in if/else chain
+          "SA1000": true, // Invalid regular expression patterns
+          "SA1002": true, // Invalid format strings in printf calls
+          "SA4005": true, // Identifies dead code after return statements
+          "SA4006": true, // Checks for inappropriate assignment of parameters
+          "SA4012": true, // Flags suspicious direct float comparisons
+          "SA9001": true, // Detects unneeded Printf calls that can be print
+          "SA9005": true, // Identifies duplicate conditions in if/else chains
+          "SA9007": true, // Checks for attempts to unmarshal into unexported fields
+          "ST1000": false, // Checks package documentation conventions
+          "ST1003": true, // Checks identifier naming conventions
+          "ST1011": true, // Flags redundant cutset arguments to strings.Trim* functions
+          "ST1012": true // Verifies error variables naming convention (_err suffix)
+        },
         "semanticTokens": true,
         "usePlaceholders": false,
         "gofumpt": true,
@@ -171,8 +170,8 @@
       "model": "claude-sonnet-4-latest"
     },
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-3-7-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
     },
     "profiles": {
       "minimal": {
