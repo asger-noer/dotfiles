@@ -7,12 +7,34 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "ui_font_weight": 400.0,
+  "buffer_font_weight": 400.0,
+  "theme": "Catppuccin Frappé",
+  "semantic_tokens": "combined",
+  "disable_ai": false,
+  "ssh_connections": [
+    {
+      "host": "raspberrypi",
+      "username": "admin",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/admin/github.com"],
+        },
+      ],
+    },
+  ],
   "buffer_line_height": "comfortable",
   "sticky_scroll": {
     "enabled": true,
   },
   "ui_font_family": "Berkeley Mono",
-  "ui_font_size": 13,
+  "ui_font_size": 13.0,
   "buffer_font_family": "Berkeley Mono",
   "buffer_font_size": 13.0,
   "use_system_window_tabs": true,
@@ -146,22 +168,22 @@
   },
   "agent": {
     "tool_permissions": {
-      "default": "allow"
+      "default": "allow",
     },
     "favorite_models": [
       {
         "provider": "copilot_chat",
         "model": "claude-sonnet-4.5",
-        "enable_thinking": false
-      }
+        "enable_thinking": false,
+      },
     ],
-    "default_profile": "ask",
+    "default_profile": "write",
     "use_modifier_to_send": true,
     "play_sound_when_agent_done": false,
     "single_file_review": false,
     "inline_assistant_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest",
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.5",
     },
     "default_model": {
       "provider": "copilot_chat",
