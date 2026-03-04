@@ -9,14 +9,7 @@
 {
   "buffer_line_height": "comfortable",
   "sticky_scroll": {
-    "enabled": true
-  },
-  "disable_ai": false,
-
-  "icon_theme": {
-    "mode": "system",
-    "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "enabled": true,
   },
   "ui_font_family": "Berkeley Mono",
   "ui_font_size": 13,
@@ -25,20 +18,18 @@
   "use_system_window_tabs": true,
   "terminal": {
     "font_family": "Berkeley Mono",
-    "font_size": 13
+    "font_size": 13,
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "edit_predictions": {
-    "enabled_in_text_threads": false
+    "provider": "copilot",
+    "enabled_in_text_threads": false,
   },
   "minimap": {
-    "show": "auto"
-  },
-  "features": {
-    "edit_prediction_provider": "copilot"
+    "show": "auto",
   },
   "git": {
     "git_gutter": "tracked_files",
@@ -47,42 +38,36 @@
       "enabled": true,
       "show_commit_summary": false,
       "min_column": 80,
-      "delay_ms": 0
-    }
-  },
-
-  "theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
+      "delay_ms": 0,
+    },
   },
   "file_types": {
     "Go": ["*.go.tmpl"],
-    "JSON": ["*.json.tmpl"]
+    "JSON": ["*.json.tmpl"],
   },
   "wrap_guides": [80, 120],
   "languages": {
     "SQL": {
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "Markdown": {
-      "soft_wrap": "bounded"
+      "soft_wrap": "bounded",
     },
     "Proto": {
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "GraphQL": {
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "Go": {
-      "language_servers": ["gopls"] //, "golangci-lint"]
+      "language_servers": ["gopls"], //, "golangci-lint"]
     },
     "Plain Text": {
-      "soft_wrap": "none"
-    }
+      "soft_wrap": "none",
+    },
   },
   "diagnostics": {
-    "include_warnings": true
+    "include_warnings": true,
   },
   "inlay_hints": {
     "enabled": false,
@@ -93,8 +78,8 @@
     "edit_debounce_ms": 700,
     "scroll_debounce_ms": 50,
     "toggle_on_modifiers_press": {
-      "control": true
-    }
+      "control": true,
+    },
   },
   "lsp": {
     "gopls": {
@@ -106,7 +91,7 @@
           "constantValues": true, // Show constant values inline
           "functionTypeParameters": true, // Show type parameter names in function calls
           "parameterNames": true, // Show parameter names at function call sites
-          "rangeVariableTypes": true // Show types of range variables
+          "rangeVariableTypes": true, // Show types of range variables
         },
         "analyses": {
           "S1002": true, // Converts uses of `strings.Compare` to string comparison
@@ -130,14 +115,14 @@
           "ST1000": false, // Checks package documentation conventions
           "ST1003": true, // Checks identifier naming conventions
           "ST1011": true, // Flags redundant cutset arguments to strings.Trim* functions
-          "ST1012": true // Verifies error variables naming convention (_err suffix)
+          "ST1012": true, // Verifies error variables naming convention (_err suffix)
         },
         "semanticTokens": true,
         "usePlaceholders": false,
         "gofumpt": true,
         "staticcheck": true,
-        "vulncheck": "Imports"
-      }
+        "vulncheck": "Imports",
+      },
     },
     "golangci-lint": {
       "initialization_options": {
@@ -147,36 +132,45 @@
           "--out-format=json",
           "--show-stats=false",
           "--issues-exit-code=1",
-          "--fast"
+          "--fast",
           // "--fix"
-        ]
-      }
+        ],
+      },
     },
     "protobuf-language-server": {
       "binary": {
         "path": "buf",
-        "arguments": ["lsp", "serve"]
-      }
-    }
+        "arguments": ["lsp", "serve"],
+      },
+    },
   },
   "agent": {
+    "tool_permissions": {
+      "default": "allow"
+    },
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "claude-sonnet-4.5",
+        "enable_thinking": false
+      }
+    ],
     "default_profile": "ask",
     "use_modifier_to_send": true,
     "play_sound_when_agent_done": false,
     "single_file_review": false,
-    "always_allow_tool_actions": true,
     "inline_assistant_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+      "model": "claude-sonnet-4-latest",
     },
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "model": "claude-sonnet-4.5",
     },
     "profiles": {
       "minimal": {
         "tools": {
-          "terminal": true
+          "terminal": true,
         },
         "name": "Minimal",
         "enable_all_context_servers": true,
@@ -187,10 +181,10 @@
               "update_issue": false,
               "create_project": false,
               "create_issue": false,
-              "create_comment": false
-            }
-          }
-        }
+              "create_comment": false,
+            },
+          },
+        },
       },
       "ask": {
         "tools": {
@@ -202,7 +196,7 @@
           "list_directory": true,
           "grep": true,
           "find_path": true,
-          "fetch": true
+          "fetch": true,
         },
         "name": "Ask",
         "enable_all_context_servers": true,
@@ -213,10 +207,10 @@
               "update_issue": false,
               "create_project": false,
               "create_issue": false,
-              "create_comment": false
-            }
-          }
-        }
+              "create_comment": false,
+            },
+          },
+        },
       },
       "write": {
         "tools": {
@@ -235,21 +229,21 @@
           "grep": true,
           "find_path": true,
           "fetch": true,
-          "write_file": true
+          "write_file": true,
         },
         "name": "Write",
-        "enable_all_context_servers": true
-      }
-    }
+        "enable_all_context_servers": true,
+      },
+    },
   },
   "context_servers": {
     "Linear": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"]
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
     },
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
-    }
-  }
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+    },
+  },
 }

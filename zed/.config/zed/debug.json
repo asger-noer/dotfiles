@@ -12,6 +12,7 @@
     "cwd": "$ZED_DIRNAME",
     "args": ["-test.run", "^$ZED_SYMBOL$", "-test.v"],
     "buildFlags": ["-tags=integration,slow"],
-    "env": {}
-  }
+    "envFile": "$ZED_WORKTREE_ROOT/local.env",
+    "env": {},
+  },
 ]
