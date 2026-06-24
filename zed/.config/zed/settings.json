@@ -7,28 +7,62 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent_servers": {
-    "claude-acp": {
-      "type": "registry"
-    }
-  },
-  "ui_font_weight": 400.0,
-  "buffer_font_weight": 400.0,
-  "theme": "Catppuccin Frappé",
-  "semantic_tokens": "combined",
-  "disable_ai": false,
   "ssh_connections": [
     {
-      "host": "raspberrypi",
+      "host": "192.168.2.12",
       "username": "admin",
       "args": [],
       "projects": [
         {
-          "paths": ["/home/admin/github.com"],
+          "paths": [
+            "/home/admin"
+          ]
         },
-      ],
-    },
+        {
+          "paths": [
+            "/home/admin/github.com"
+          ]
+        },
+        {
+          "paths": [
+            "/home/admin/github.com/asger-noer/home/./"
+          ]
+        }
+      ]
+    }
   ],
+  "diff_view_style": "split",
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "proxy": "",
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "model": "opus",
+        "mode": "plan",
+      },
+      "favorite_config_option_values": {
+        "mode": ["plan"],
+      },
+      "type": "registry",
+    },
+  },
+  "ui_font_weight": 400.0,
+  "buffer_font_weight": 400.0,
+  "theme": "One Dark",
+  "semantic_tokens": "combined",
+  "disable_ai": false,
   "buffer_line_height": "comfortable",
   "sticky_scroll": {
     "enabled": true,
@@ -47,13 +81,17 @@
     "metrics": false,
   },
   "edit_predictions": {
+    "mode": "eager",
+    "copilot": {
+      "enable_next_edit_suggestions": true,
+    },
     "provider": "copilot",
-    "enabled_in_text_threads": false,
   },
   "minimap": {
     "show": "auto",
   },
   "git": {
+    "disable_git": false,
     "git_gutter": "tracked_files",
     "hunk_style": "staged_hollow",
     "inline_blame": {
@@ -69,6 +107,9 @@
   },
   "wrap_guides": [80, 120],
   "languages": {
+    "YAML": {
+      "format_on_save": "on",
+    },
     "SQL": {
       "format_on_save": "off",
     },
@@ -76,13 +117,13 @@
       "soft_wrap": "bounded",
     },
     "Proto": {
-      "format_on_save": "off",
+      "format_on_save": "on",
     },
     "GraphQL": {
       "format_on_save": "off",
     },
     "Go": {
-      "language_servers": ["gopls"], //, "golangci-lint"]
+      "language_servers": ["gopls", "golangci-lint"],
     },
     "Plain Text": {
       "soft_wrap": "none",
@@ -144,6 +185,7 @@
         "gofumpt": true,
         "staticcheck": true,
         "vulncheck": "Imports",
+        "buildFlags": ["-tags=preview"],
       },
     },
     "golangci-lint": {
@@ -151,11 +193,12 @@
         "command": [
           "golangci-lint",
           "run",
-          "--out-format=json",
+          "--output.json.path",
+          "stdout",
           "--show-stats=false",
           "--issues-exit-code=1",
-          "--fast",
-          // "--fix"
+          "--new",
+          "--fix",
         ],
       },
     },
@@ -167,27 +210,55 @@
     },
   },
   "agent": {
+    "dock": "right",
+    "thinking_display": "preview",
     "tool_permissions": {
-      "default": "allow",
-    },
-    "favorite_models": [
-      {
-        "provider": "copilot_chat",
-        "model": "claude-sonnet-4.5",
-        "enable_thinking": false,
+      "tools": {
+        "mcp:linear:get_issue": {
+          "default": "allow"
+        },
+        "mcp:linear:list_issue_labels": {
+          "default": "allow"
+        },
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^git\\b",
+            },
+            {
+              "pattern": "^git\\s+diff(\\s|$)",
+            },
+            {
+              "pattern": "^git\\s+branch(\\s|$)",
+            },
+            {
+              "pattern": "^go\\s+doc(\\s|$)",
+            },
+            {
+              "pattern": "^go\\s+test(\\s|$)",
+            },
+            {
+              "pattern": "^go\\s+vet(\\s|$)",
+            },
+          ],
+        },
       },
-    ],
+      "default": "confirm",
+    },
+    "favorite_models": [],
     "default_profile": "write",
     "use_modifier_to_send": true,
-    "play_sound_when_agent_done": false,
-    "single_file_review": false,
+    "play_sound_when_agent_done": "never",
+    "single_file_review": true,
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5",
+      "model": "claude-sonnet-4.7",
     },
     "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5",
+      "model": "claude-opus-4.7",
     },
     "profiles": {
       "minimal": {
@@ -259,9 +330,16 @@
     },
   },
   "context_servers": {
-    "Linear": {
+    "linear": {
+      "enabled": true,
+      "remote": false,
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.linear.app/mcp"
+      ],
+      "env": {}
     },
     "Context7": {
       "command": "npx",

@@ -31,5 +31,3 @@
   path = .gitconfig_lw
 [includeIf "gitdir/i:/Users/asno/go/src/github.com/lunarway/"]
   path = .gitconfig_lw
-[url "git@github.com:lunarway"]
-	insteadof = https://github.com/lunarway

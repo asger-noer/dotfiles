@@ -2,41 +2,20 @@
 # Set PATH so that it includes ~/.local/bin
 PATH="$HOME/.local/bin:$PATH"
 
-# Put your aliases etc, here.
-# ...
-# your original .zshrc has been moved to .zshrc.backup
-
+# Skip lw-zsh's startup side effects. We use gpg-agent for SSH auth (see
+# ssh/.ssh/config's IdentityAgent) so the plugin's ssh-agent.zsh has no key
+# to add. Binaries under $LW_LOCAL_PATH are already installed and kept fresh
+# by lw_periodic_update, so the first-time install / background cache refresh
+# this flag also gates are not needed here.
+export LW_STARTUP_SIDE_EFFECTS=false
+LW_LOCAL_PATH=/Users/asno/.local/share/lunar
 LW_PATH=~/lunar
-GOPATH=~/go
-GOBIN="$GOPATH/bin"
-PATH="$GOBIN:$PATH"
 
 ### Lunar Way Setup ###
 
-# Init zplug
-source ~/.zplug/init.zsh
-
-# Instruct zplug to use ssh for fetching plugins
-ZPLUG_PROTOCOL=ssh
-
-# Load default plugins from lw-zsh
-source ~/.zplug/repos/lunarway/lw-zsh/default-plugins.zsh
-
-# Load plugins using zplug
-zplug "lunarway/lw-zsh"
-
-# Check for updates and install them
-if ! zplug check; then
-    zplug install
+if [[ -t 0 && -t 1 && "$TERM" != "dumb" ]]; then
+  zinit ice wait lucid atload:"k8s_init"
+  zinit load "lunarway/lw-zsh"
+else
+  zinit light "lunarway/lw-zsh"
 fi
-
-# Load all zplug plugins
-zplug load
-
-# Configure Lunar Way kubernetes setup
-k8s_init
-
-# Periodic updates
-lw_periodic_update
-
-### THEME OVERRIDES HERE

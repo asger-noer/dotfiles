@@ -1,5 +1,4 @@
 gui:
-  skipDiscardChangeWarning: true
   shortTimeFormat: "15:04"
   theme:
     activeBorderColor:
@@ -21,9 +20,12 @@ gui:
       - "#cdd6f4"
     searchingActiveBorderColor:
       - "#f9e2af"
-  authorColors:
-    "*": "#b4befe"
 git:
   parseEmoji: true
 os:
   editPreset: "zed"
+customCommands:
+  - key: "S"
+    context: "localBranches"
+    description: "Push all branches in the current stack"
+    command: "stacker branch push"

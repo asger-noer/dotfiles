@@ -1,0 +1,10 @@
+{
+  "trustedformulae": [
+    "int128/kubelogin/kubelogin"
+  ],
+  "trustedtaps": [
+    "bufbuild/buf",
+    "dagger/tap",
+    "derailed/k9s"
+  ]
+}
