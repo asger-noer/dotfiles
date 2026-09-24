@@ -1,0 +1,21 @@
+### YOUR CONFIGURATION
+# Set PATH so that it includes ~/.local/bin
+PATH="$HOME/.local/bin:$PATH"
+
+# Skip lw-zsh's startup side effects. We use gpg-agent for SSH auth (see
+# ssh/.ssh/config's IdentityAgent) so the plugin's ssh-agent.zsh has no key
+# to add. Binaries under $LW_LOCAL_PATH are already installed and kept fresh
+# by lw_periodic_update, so the first-time install / background cache refresh
+# this flag also gates are not needed here.
+export LW_STARTUP_SIDE_EFFECTS=false
+LW_LOCAL_PATH=/Users/asno/.local/share/lunar
+LW_PATH=~/lunar
+
+### Lunar Way Setup ###
+
+if [[ -t 0 && -t 1 && "$TERM" != "dumb" ]]; then
+  zinit ice wait lucid atload:"k8s_init"
+  zinit load "lunarway/lw-zsh"
+else
+  zinit light "lunarway/lw-zsh"
+fi
