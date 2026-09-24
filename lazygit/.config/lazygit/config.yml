@@ -1,0 +1,32 @@
+gui:
+  shortTimeFormat: "15:04"
+  theme:
+    activeBorderColor:
+      - "#b4befe"
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8"
+    optionsTextColor:
+      - "#89b4fa"
+    selectedLineBgColor:
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#b4befe"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#f9e2af"
+git:
+  parseEmoji: true
+  overrideGpg: true
+os:
+  editPreset: "zed -w"
+customCommands:
+  - key: "S"
+    context: "localBranches"
+    description: "Push all branches in the current stack"
+    command: "stacker branch push"
