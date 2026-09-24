@@ -1,0 +1,36 @@
+[user]
+	name = Asger Noer
+	email = asger@noer.dev
+	signingkey = 3B5F9AF6F6FF9450237173979329A40B7D9A07D8
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgSign = true
+
+[gpg]
+	program = gpg
+
+[pull]
+    rebase = true
+
+[rebase]
+	updateRefs = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[includeIf "gitdir/i:/Users/asno/lunar/"]
+  path = .gitconfig_lw
+[includeIf "gitdir/i:/Users/asno/go/src/github.com/lunarway/"]
+  path = .gitconfig_lw

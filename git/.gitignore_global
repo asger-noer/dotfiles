@@ -1,0 +1,5 @@
+# This file is used to ignore files and directories in all git repositories.
+THOUGHTS.md
+
+.claude/
+.zed/
