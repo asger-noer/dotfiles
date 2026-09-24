@@ -1,0 +1,410 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "format_on_save": "on",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+  "diff_view_style": "split",
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "proxy": "",
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "model": "opus",
+        "mode": "acceptEdits",
+      },
+      "favorite_config_option_values": {
+        "mode": ["plan"],
+      },
+      "type": "registry",
+    },
+  },
+  "ui_font_weight": 400.0,
+  "buffer_font_weight": 400.0,
+  "theme": {
+    "mode": "dark",
+    "dark": "Catppuccin Mocha",
+    "light": "Gruvbox Light",
+  },
+  "semantic_tokens": "combined",
+  "disable_ai": false,
+  "buffer_line_height": "comfortable",
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "ui_font_family": "Berkeley Mono",
+  "ui_font_size": 13.0,
+  "buffer_font_family": "Berkeley Mono",
+  "buffer_font_size": 13.0,
+  "use_system_window_tabs": true,
+  "terminal": {
+    "font_family": "Berkeley Mono",
+    "font_size": 13,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "edit_predictions": {
+    "provider": "ollama",
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "model": "qwen2.5-coder:7b-base",
+      "prompt_format": "infer",
+      "max_output_tokens": 512,
+    },
+  },
+  "minimap": {
+    "show": "auto",
+  },
+  "git": {
+    "disable_git": false,
+    "git_gutter": "tracked_files",
+    "hunk_style": "staged_hollow",
+    "inline_blame": {
+      "enabled": true,
+      "show_commit_summary": false,
+      "min_column": 80,
+      "delay_ms": 0,
+    },
+  },
+  "file_types": {
+    "HTML": ["*.html.tmpl", "*.html.templ"],
+    "Go": ["*.go.tmpl"],
+    "JSON": ["*.json.tmpl"],
+  },
+  "wrap_guides": [80, 120],
+  "languages": {
+    "YAML": {
+      "format_on_save": "on",
+    },
+    "SQL": {
+      "format_on_save": "off",
+    },
+    "Markdown": {
+      "soft_wrap": "bounded",
+    },
+    "Proto": {
+      "format_on_save": "on",
+    },
+    "GraphQL": {
+      "format_on_save": "off",
+    },
+    "Go": {
+      "language_servers": ["gopls", "golangci-lint"],
+    },
+    "Plain Text": {
+      "soft_wrap": "none",
+    },
+    "Templ": {
+      "language_servers": [
+        "templ",
+        "tailwindcss-language-server",
+        "vscode-css-language-server",
+        "emmet-language-server",
+      ],
+    },
+  },
+  "diagnostics": {
+    "include_warnings": true,
+  },
+  "inlay_hints": {
+    "enabled": false,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_background": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50,
+    "toggle_on_modifiers_press": {
+      "control": true,
+    },
+  },
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "hints": {
+          "assignVariableTypes": false, // Show variable types in assignments
+          "compositeLiteralFields": false, // Show field names in composite literals
+          "compositeLiteralTypes": false, // Show types in composite literals
+          "constantValues": true, // Show constant values inline
+          "functionTypeParameters": true, // Show type parameter names in function calls
+          "parameterNames": true, // Show parameter names at function call sites
+          "rangeVariableTypes": true, // Show types of range variables
+        },
+        "analyses": {
+          "S1002": true, // Converts uses of `strings.Compare` to string comparison
+          "S1005": true, // Checks for unnecessary use of assignment to blank identifier
+          "S1006": true, // Suggests `for range x` over `for _, _ = range x`
+          "S1008": true, // Simplifies returning boolean expressions
+          "S1011": true, // Suggests removing redundant break statements from switch cases
+          "S1016": true, // Simplifies type switches with a single case
+          "S1021": true, // Removes redundant type conversions in range clauses
+          "S1025": true, // Replaces `fmt.Sprintf("%d", x)` with `strconv.Itoa(x)`
+          "S1029": true, // Suggests using `range x` over `for i := range ...`
+          "S9003": true, // Empty body in if/else chain
+          "SA1000": true, // Invalid regular expression patterns
+          "SA1002": true, // Invalid format strings in printf calls
+          "SA4005": true, // Identifies dead code after return statements
+          "SA4006": true, // Checks for inappropriate assignment of parameters
+          "SA4012": true, // Flags suspicious direct float comparisons
+          "SA9001": true, // Detects unneeded Printf calls that can be print
+          "SA9005": true, // Identifies duplicate conditions in if/else chains
+          "SA9007": true, // Checks for attempts to unmarshal into unexported fields
+          "ST1000": false, // Checks package documentation conventions
+          "ST1003": true, // Checks identifier naming conventions
+          "ST1011": true, // Flags redundant cutset arguments to strings.Trim* functions
+          "ST1012": true, // Verifies error variables naming convention (_err suffix)
+        },
+        "semanticTokens": true,
+        "usePlaceholders": false,
+        "gofumpt": true,
+        "staticcheck": true,
+        "vulncheck": "Imports",
+        "buildFlags": ["-tags=preview"],
+      },
+    },
+    "golangci-lint": {
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--show-stats=false",
+          "--issues-exit-code=1",
+          "--new",
+          "--fix",
+        ],
+      },
+    },
+    "protobuf-language-server": {
+      "binary": {
+        "path": "buf",
+        "arguments": ["lsp", "serve"],
+      },
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classAttributes": ["class", "className", "ngClass"],
+        "includeLanguages": {
+          "templ": "html",
+        },
+      },
+    },
+  },
+  "agent": {
+    "terminal_init_command": "opencode",
+    "sandbox_permissions": {
+      "allow_all_hosts": true,
+      "network_hosts": ["github.com"],
+    },
+    "dock": "right",
+    "thinking_display": "preview",
+    "tool_permissions": {
+      "tools": {
+        "mcp:linear:list_diffs": {
+          "default": "allow",
+        },
+        "mcp:gopls:go_rename_symbol": {
+          "default": "allow",
+        },
+        "mcp:gopls:go_workspace": {
+          "default": "allow",
+        },
+        "mcp:gopls:go_diagnostics": {
+          "default": "allow",
+        },
+        "skill": {
+          "default": "allow",
+        },
+        "mcp:linear:get_issue": {
+          "default": "allow",
+        },
+        "mcp:linear:list_issue_labels": {
+          "default": "allow",
+        },
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^git\\b",
+            },
+            {
+              "pattern": "^git\\s+diff(\\s|$)",
+            },
+            {
+              "pattern": "^git\\s+branch(\\s|$)",
+            },
+            {
+              "pattern": "^go\\s+doc(\\s|$)",
+            },
+            {
+              "pattern": "^go\\s+test(\\s|$)",
+            },
+            {
+              "pattern": "^go\\s+vet(\\s|$)",
+            },
+            {
+              "pattern": "^echo\\b",
+            },
+            {
+              "pattern": "^grep\\b",
+            },
+            {
+              "pattern": "^head\\b",
+            },
+            {
+              "pattern": "^shuttle\\s+run(\\s|$)",
+            },
+            {
+              "pattern": "^go\\s+build(\\s|$)",
+            },
+            {
+              "pattern": "^sed\\b",
+            },
+          ],
+        },
+      },
+      "default": "confirm",
+    },
+    "favorite_models": [
+      {
+        "provider": "amazon-bedrock",
+        "model": "claude-opus-5",
+        "enable_thinking": true,
+        "effort": "high",
+      },
+    ],
+    "default_profile": "ask",
+    "use_modifier_to_send": true,
+    "play_sound_when_agent_done": "never",
+    "single_file_review": true,
+    "inline_assistant_model": {
+      "provider": "amazon-bedrock",
+      "model": "claude-sonnet-4-6",
+    },
+    "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "amazon-bedrock",
+      "model": "claude-opus-4-7",
+    },
+    "profiles": {
+      "minimal": {
+        "tools": {
+          "terminal": true,
+        },
+        "name": "Minimal",
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "Linear": {
+            "tools": {
+              "update_project": false,
+              "update_issue": false,
+              "create_project": false,
+              "create_issue": false,
+              "create_comment": false,
+            },
+          },
+        },
+      },
+      "ask": {
+        "tools": {
+          "terminal": true,
+          "diagnostics": true,
+          "thinking": true,
+          "read_file": true,
+          "now": true,
+          "list_directory": true,
+          "grep": true,
+          "find_path": true,
+          "fetch": true,
+        },
+        "name": "Ask",
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "Linear": {
+            "tools": {
+              "update_project": false,
+              "update_issue": false,
+              "create_project": false,
+              "create_issue": false,
+              "create_comment": false,
+            },
+          },
+        },
+      },
+      "write": {
+        "tools": {
+          "open": true,
+          "move_path": true,
+          "edit_file": true,
+          "create_directory": true,
+          "delete_path": false,
+          "copy_path": true,
+          "terminal": true,
+          "diagnostics": true,
+          "thinking": true,
+          "read_file": true,
+          "now": true,
+          "list_directory": true,
+          "grep": true,
+          "find_path": true,
+          "fetch": true,
+          "write_file": true,
+        },
+        "name": "Write",
+        "enable_all_context_servers": true,
+      },
+    },
+  },
+  "context_servers": {
+    "gopls": {
+      "enabled": true,
+      "remote": false,
+      "command": "gopls",
+      "args": ["mcp"],
+    },
+    "mcp-server-context7": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "context7_api_key": "",
+      },
+    },
+    "linear": {
+      "enabled": true,
+      "remote": false,
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"],
+    },
+  },
+  "language_models": {
+    "bedrock": {
+      "authentication_method": "named_profile",
+      "region": "eu-west-1",
+      "profile": "lw-employee-ai",
+    },
+  },
+}
