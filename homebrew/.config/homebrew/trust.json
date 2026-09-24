@@ -1,0 +1,16 @@
+{
+  "trustedformulae": [
+    "anomalyco/tap/opencode",
+    "anomalyco/tap/opencode-v2",
+    "int128/kubelogin/kubelogin",
+    "tinygo-org/tools/tinygo"
+  ],
+  "trustedtaps": [
+    "bufbuild/buf",
+    "dagger/tap",
+    "derailed/k9s"
+  ],
+  "trustedcasks": [
+    "ardanlabs/kronk/kronk"
+  ]
+}
